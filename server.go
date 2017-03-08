@@ -58,7 +58,7 @@ func handleTrace(c *gin.Context) {
     cmd := exec.Command(
         "java",
         "-cp",
-        "backend/trace/bin:backend/trace/packages/*",
+        "bin:packages/*",
         "GenerateTrace",
     )
 
