@@ -35,7 +35,7 @@ sudo PORT=80 GIN_MODE=release ./server &
 
 Send the following HTTP POST request to the `/trace` endpoint at the EC2 server's DNS address:
 
-*If you're trying to copy & paste this HTTP request, be sure to edit the payload so that the JSON blob is all on a sigle line.*
+*If you're trying to copy & paste this HTTP request, be sure to edit the payload so that the JSON blob is all on a single line.*
 
 ```
 POST /trace HTTP/1.1
