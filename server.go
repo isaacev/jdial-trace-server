@@ -29,7 +29,7 @@ func main() {
     r := gin.Default()
 
     // Attach API handling functions to their respective HTTP endpoints
-    r.POST("/trace", handleTrace)
+    r.POST("/", handleTrace)
 
     // Start the router listening for incoming requests on the specified port
     r.Run(":" + port)
