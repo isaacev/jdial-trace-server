@@ -36,7 +36,7 @@ npm run check
 npm run start &
 ```
 
-- Only add the ampersand if the server sould be run in the background.
+- Only add the ampersand if the server should be run in the background.
 - Listens to port `8080` by default. Can be configured like so: `PORT=3000 npm run start`.
 - By default, the server will create a daily log file under the `./logs` directory. This behavior can be configured by running `LOG=stdout npm run start` to send all logging data to `stdout`.
 
