@@ -4,9 +4,10 @@
 
 ### Create the EC2 instance
 - Tested on Ubuntu 16.04 AMD64
-- Make sure port `80` is exposed over HTTP (can be configured via `Security Groups`)
+- Make sure port `8080` is exposed over HTTP (can be configured via `Security Groups`)
 
-### Launch up the server
+### Launching the server
+
 - SSH into the EC2 server
 - Install Java OpenJDK 8:
 
@@ -15,33 +16,41 @@ sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 ```
 
-- Clone the JDial trace server from GitHub:
+- Clone the JDial trace server from GitHub and install dependencies:
 
 ```
 git clone https://github.com/isaacev/jdial-trace-server.git
-```
-
-- Boot up the server program (adding an ampersand so the command will run in the background):
-
-```
 cd jdial-trace-server
+npm install
+```
+
+- Check that dependencies are working:
+
+```
+npm run check
+```
+
+- Start the server:
+
+```
 npm run start &
 ```
 
-- All done!
+- Only add the ampersand if the server sould be run in the background.
+- Listens to port `8080` by default. Can be configured like so: `PORT=3000 npm run start`.
+- By default, the server will create a daily log file under the `./logs` directory. This behavior can be configured by running `LOG=stdout npm run start` to send all logging data to `stdout`.
 
 
-## Testing that the server works
+## Testing that the REST API works.
 
-Send the following HTTP POST request to the `/trace` endpoint at the EC2 server's DNS address:
+Send the following HTTP POST request to the `/` endpoint at the EC2 server's DNS address:
 
 *If you're trying to copy & paste this HTTP request, be sure to edit the payload so that the JSON blob is all on a single line.*
 
 ```
 POST /trace HTTP/1.1
+Host: <AMAZON EC2 DNS>:8080
 Content-Type: application/json; charset=utf-8
-Connection: close
-Content-Length: 128
 
 {"source":"public class Main {    public static void main(Strin
 g[] args) {        System.out.println(\"Hello, world!\");    }}
@@ -54,7 +63,6 @@ Expect back a response that is something like this:
 HTTP/1.1 200 OK
 Content-Type: text/plain; charset=utf-8
 Content-Length: 1161
-Connection: close
 
 {"code":"public class Main {    public static void main(String[
 ] args) {        System.out.println(\"Hello, world!\");    }}\n
