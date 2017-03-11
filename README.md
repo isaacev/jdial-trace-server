@@ -25,7 +25,7 @@ git clone https://github.com/isaacev/jdial-trace-server.git
 
 ```
 cd jdial-trace-server
-sudo PORT=80 GIN_MODE=release ./server &
+npm run start &
 ```
 
 - All done!

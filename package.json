@@ -1,0 +1,25 @@
+{
+  "name": "jdial-trace-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaacev/jdial-trace-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isaacev/jdial-trace-server/issues"
+  },
+  "homepage": "https://github.com/isaacev/jdial-trace-server#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-winston": "^2.3.0",
+    "http-status-codes": "^1.1.6",
+    "mkdirp": "^0.5.1",
+    "winston": "^2.3.1",
+    "winston-daily-rotate-file": "^1.4.5"
+  }
+}
