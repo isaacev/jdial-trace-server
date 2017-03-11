@@ -15,7 +15,7 @@ sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 ```
 
-- Clone the JDail trace server from GitHub:
+- Clone the JDial trace server from GitHub:
 
 ```
 git clone https://github.com/isaacev/jdial-trace-server.git
